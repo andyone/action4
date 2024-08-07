@@ -25,6 +25,7 @@ jobs:
 
           JSON_DATA=$(cat << EOF
           {
+            "job": "${{github.job}}",
             "event_name": "${{github.event_name}}",
             "repository": "${{github.repository}}",
             "run_attempt": ${{github.run_attempt}},
