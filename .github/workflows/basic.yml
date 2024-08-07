@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: View github context
         run: |
-          JSON_DATA=$(cat < EOF
+          JSON_DATA=$(cat << EOF
           {
             "repository": "${{github.repository}}",
             "run_attempt": ${{github.run_attempt}},
