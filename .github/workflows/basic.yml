@@ -30,4 +30,4 @@ jobs:
 
           echo "$JSON_DATA" > payload.json
 
-          cat payload.json
+          jq payload.json
