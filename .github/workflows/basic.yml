@@ -19,11 +19,23 @@ jobs:
     steps:
       - name: View github context
         run: |
+          COMMIT_SHA="${{github.sha}}"
+          COMMIT_SHA_SHORT="${COMMIT_SHA:0:7}"
+
           JSON_DATA=$(cat << EOF
           {
+            "event_name": "${{github.event_name}}",
             "repository": "${{github.repository}}",
             "run_attempt": ${{github.run_attempt}},
             "run_number": ${{github.run_number}},
+            "actor": "${{github.actor}}",
+            "workflow": "${{github.workflow}}",
+            "sha": "$COMMIT_SHA",
+            "sha_short": "$COMMIT_SHA_SHORT",
+            "ref": "${{github.ref_name}}",
+            "author_email": "${{github.event.head_commit.author.email}}",
+            "author_name": "${{github.event.head_commit.author.name}}",
+            "author_username": "${{github.event.head_commit.author.username}}"
           }
           EOF
           )
