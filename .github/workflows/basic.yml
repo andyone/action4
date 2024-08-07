@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: View github context
         run: |
-          cat < EOF > payload.json
+          cat < 'EOF' > payload.json
           {
             "repository": "${{github.repository}}",
             "run_attempt": ${{github.run_attempt}},
