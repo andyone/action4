@@ -19,12 +19,15 @@ jobs:
     steps:
       - name: View github context
         run: |
-          cat < 'EOF' > payload.json
+          JSON_DATA=$(cat < EOF
           {
             "repository": "${{github.repository}}",
             "run_attempt": ${{github.run_attempt}},
             "run_number": ${{github.run_number}},
           }
           EOF
+          )
+
+          echo "$JSON_DATA" > payload.json
 
           cat payload.json
