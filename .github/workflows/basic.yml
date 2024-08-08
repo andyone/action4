@@ -29,3 +29,6 @@ jobs:
         uses: andyone/pachca-action@master
         with:
           webhook: ${{secrets.PACHCA_WEBHOOK}}
+          title: "Deploying backend"
+          message: "Building docker image and deploying it to AWS"
+          status: "okay"
