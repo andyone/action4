@@ -22,7 +22,7 @@ jobs:
 
     steps:
       - name: View github context
-        run: echo "${{ toJson(github) }}"
+        run: echo '${{ toJson(github) }}'
 
       - name: Assignees
         run: |
