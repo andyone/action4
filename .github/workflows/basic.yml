@@ -31,4 +31,4 @@ jobs:
           timezone: "Europe/Moscow"
           title: "Deploying backend"
           message: "Building docker image and deploying it to AWS"
-          status: "failure"
+          type: "fail"
