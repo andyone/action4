@@ -5,7 +5,6 @@ on:
     branches: [master, develop]
   pull_request:
     branches: [master]
-  deployment:
   workflow_dispatch:
     inputs:
       force_rebuild:
@@ -23,12 +22,13 @@ jobs:
 
     steps:
       - name: View github context
-        run: echo "${{ toJson(github) }}"
+        run: echo '${{ toJson(github) }}'
 
-      - name: Show info about built Docker image
+      - name: Show notification to Pachca
         uses: andyone/pachca-action@master
         with:
           webhook: ${{secrets.PACHCA_WEBHOOK}}
+          timezone: "Europe/Moscow"
           title: "Deploying backend"
           message: "Building docker image and deploying it to AWS"
-          status: "okay"
+          type: "fail"
