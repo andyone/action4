@@ -19,6 +19,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: View github context
+        run: echo "${{ toJson(github) }}"
+
       - name: Show info about built Docker image
         uses: andyone/pachca-action@master
         with:
