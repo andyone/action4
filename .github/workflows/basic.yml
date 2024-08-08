@@ -24,7 +24,7 @@ jobs:
       - name: View github context
         run: echo "${{ toJson(github) }}"
 
-      - name: Show info about built Docker image
+      - name: Show notification to Pachca
         uses: andyone/pachca-action@master
         with:
           webhook: ${{secrets.PACHCA_WEBHOOK}}
