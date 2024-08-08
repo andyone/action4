@@ -26,8 +26,7 @@ jobs:
 
       - name: Assignees
         run: |
-          echo "${{ toJson(github.event.pull_request.assignees) }}" > context.json
-          jq -r '. | map(.login) | join(", ")' context.json
+          echo "${{ toJson(github.event.pull_request.assignees.login) }}"
 
       - name: Show notification to Pachca
         uses: andyone/pachca-action@master
