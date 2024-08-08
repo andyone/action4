@@ -25,7 +25,8 @@ jobs:
         run: echo "${{ toJson(github) }}"
 
       - name: Assignees
-        run: echo "${{ toJson(github) }}" | jq '.'
+        run: |
+          echo "${{ toJson(github) }}" | jq '.'
 
       - name: Show notification to Pachca
         uses: andyone/pachca-action@master
