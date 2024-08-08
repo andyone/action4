@@ -28,6 +28,7 @@ jobs:
         uses: andyone/pachca-action@master
         with:
           webhook: ${{secrets.PACHCA_WEBHOOK}}
+          timezone: "Europe/Moscow"
           title: "Deploying backend"
           message: "Building docker image and deploying it to AWS"
           status: "failure"
