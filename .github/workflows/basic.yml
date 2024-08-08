@@ -21,4 +21,4 @@ jobs:
         uses: andyone/pachca-action@master
         with:
           webhook: ${{secrets.PACHCA_WEBHOOK}}
-          payload: raw
+          payload-format: raw
