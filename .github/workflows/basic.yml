@@ -2,7 +2,10 @@ name: ACTION
 
 on:
   push:
+    branches: [master, develop]
+  pull_request:
     branches: [master]
+  deployment:
   workflow_dispatch:
     inputs:
       force_rebuild:
@@ -16,9 +19,16 @@ jobs:
     name: Notify
     runs-on: ubuntu-latest
 
+    environment: Devel
+
     steps:
+      - name: View github context
+        run: echo "${{ toJson(github) }}"
+
       - name: Show info about built Docker image
         uses: andyone/pachca-action@master
         with:
           webhook: ${{secrets.PACHCA_WEBHOOK}}
-          payload-format: raw
+          title: "Deploying backend"
+          message: "Building docker image and deploying it to AWS"
+          status: "okay"
