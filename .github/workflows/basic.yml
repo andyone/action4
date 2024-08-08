@@ -5,6 +5,7 @@ on:
     branches: [master, develop]
   pull_request:
     branches: [master]
+  deployment:
   workflow_dispatch:
     inputs:
       force_rebuild:
@@ -28,4 +29,3 @@ jobs:
         uses: andyone/pachca-action@master
         with:
           webhook: ${{secrets.PACHCA_WEBHOOK}}
-          payload-format: raw
